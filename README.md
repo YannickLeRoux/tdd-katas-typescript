@@ -1,0 +1,1 @@
+# Katas to practice TDD and TypeScript
