@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/mini-max-sum/problem
 const minMaxSum = (arr: number[]): number[] => {
 
   const sumTotal: number = arr.reduce( (total, current) => {
