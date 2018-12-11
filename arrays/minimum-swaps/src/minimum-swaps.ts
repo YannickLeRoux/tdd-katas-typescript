@@ -1,4 +1,5 @@
 // https://www.hackerrank.com/challenges/minimum-swaps-2/
+// create a map of indexes to avoid to long computation
 
 const minimumSwaps = (arr: number[]): number => {
   const target: number[] = [...arr].sort();
@@ -16,7 +17,6 @@ const minimumSwaps = (arr: number[]): number => {
   }, {});
 
   while ( !checkArraysEqual(arr, target)) {
-    // create a map of indexes to avoid to long computation
 
     // loop over array
     for ( let i = 0; i < arrLength; i++) {
