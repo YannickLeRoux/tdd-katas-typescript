@@ -3,14 +3,31 @@
 const scratch = (lottery: string[]): number => {
   const gains: number[] = [];
 
-  const split = lottery.reduce((acc, curr) => {
+  const tickets = lottery.reduce((acc, curr) => {
     acc.push(curr.split(' '));
     return acc;
   }, []);
 
-  split.forEach(el => gains.push(parseInt(el[3], 10)));
+  const x: string = '###';
 
-  console.log(split);
+  tickets.forEach(el => {
+    console.log('el', el);
+
+    if (el[3] === x && isWinner(el)) {
+      gains.push(10000);
+    } else if (isWinner(el)) {
+      gains.push(parseInt(el[3], 10));
+    }
+  });
+
+  console.log(tickets, gains);
   return gains.reduce((acc, curr) => acc + curr, 0);
 };
+
+const isWinner = ticket => {
+  ticket = ticket.slice(0, 3);
+  const set = new Set(ticket);
+  return set.size < 2 || (set.size < 3 && set.has('###'));
+};
+
 module.exports = scratch;
